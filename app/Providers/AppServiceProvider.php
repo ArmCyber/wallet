@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\CommissionService;
+use App\Services\CsvReaderService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(CsvReaderService::class);
+        $this->app->singleton(CommissionService::class);
     }
 
     /**
